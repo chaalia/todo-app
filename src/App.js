@@ -16,7 +16,13 @@ class App extends Component {
     let items = this.state.items
     let i = items.findIndex(item => item.id === id)
     items.splice(i,1)
-    this.setState({items})
+    this.setState({items:items})
+
+    // another way to do it 
+    // let items = this.state.items.filter(item => {
+    //   return item.id !== id
+    // this.setState({items})
+    // })
   }
 
   render(){
