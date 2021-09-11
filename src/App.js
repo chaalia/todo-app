@@ -25,13 +25,20 @@ class App extends Component {
     // })
   }
 
+  addItem = (item) => {
+      let items = this.state.items;
+      items.push(item);
+      this.setState({items:items});
+
+  }
+
   render(){
   return (
     <div className="App">
        <h2> Todo list items </h2>
         <TodoItems items={this.state.items} deleteItems={this.deleteItems}/>
 
-        {/* <h3> <AddItems/></h3> */}
+        <div><AddItems addItem={this.addItem}/> </div>
     </div>
   );
 }
