@@ -11,13 +11,21 @@ class App extends Component {
       {id: 3, name:"Rjab", age:"19"}
     ]
   }
+
+  deleteItems = (id) =>{
+    let items = this.state.items
+    let i = items.findIndex(item => item.id === id)
+    items.splice(i,1)
+    this.setState({items})
+  }
+
   render(){
   return (
     <div className="App">
        <h2> Todo list items </h2>
-        <TodoItems/>
+        <TodoItems items={this.state.items} deleteItems={this.deleteItems}/>
 
-        <h3> <AddItems/></h3>
+        {/* <h3> <AddItems/></h3> */}
     </div>
   );
 }
