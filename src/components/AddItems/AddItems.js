@@ -15,18 +15,24 @@ class AddItems extends Component {
         [e.target.id] : e.target.value
         })
     }
-    
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.addItem(this.state)
+        this.setState(
+            {
+                name: '',
+                age: ''
+            }
+        )
     }
     
     render(){
         return (    
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Enter your name" id="name" onChange={this.handleChange}/>
-                    <input type="number" placeholder="Enter your age" id="age" onChange={this.handleChange}/>
+                    <input type="text" placeholder="Enter your name" id="name" onChange={this.handleChange} value={this.state.name}/>
+                    <input type="number" placeholder="Enter your age" id="age" onChange={this.handleChange} value={this.state.age} />
                     <input type="Submit" value="Add"/>
 
                 </form>
